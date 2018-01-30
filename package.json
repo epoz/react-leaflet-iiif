@@ -1,0 +1,27 @@
+{
+    "name": "react-leaflet-iiif",
+    "version": "0.1.0",
+    "main": "./react-leaflet-iiif.js",
+    "files": [
+        "react-leaflet-iiif.js"
+    ],
+    "description": "React-Leaflet plugin to display IIIF resources",
+    "keywords": [
+        "react",
+        "leaflet",
+        "plugin",
+        "iiif"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/epoz/react-leaflet-iiif"
+    },
+    "dependencies": {
+        "leaflet": "^1.2.0",
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0",
+        "react-leaflet": "^1.7.8"
+    },
+    "author": "Etienne Posthumus",
+    "license": "MIT"
+}
