@@ -38,8 +38,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
     this._infoUrl = url;
     this._baseUrl = this._templateUrl();
 
-    this._infoPromise = this._getInfo();
-    // removing  this._infoDeferred = new $.Deferred();
+    this._infoPromise = fetch(this._infoUrl);
   },
   getTileUrl: function(coords) {
     var _this = this,
@@ -73,7 +72,7 @@ L.TileLayer.Iiif = L.TileLayer.extend({
   onAdd: function(map) {
     var _this = this;
 
-    // Wait for fetch promise in _getInfo to complete
+    // Wait for _this._infoPromise fetch to complete
     _this._infoPromise.then(response => response.json()).then(data => {
       _this.y = data.height;
       _this.x = data.width;
@@ -212,11 +211,6 @@ L.TileLayer.Iiif = L.TileLayer.extend({
 
     _this._map.setMaxBounds(bounds, true);
   },
-  _getInfo: function() {
-    var _this = this;
-
-    return fetch(_this._infoUrl);
-  },
 
   _setQuality: function() {
     var _this = this;
@@ -290,17 +284,15 @@ L.tileLayer.iiif = function(url, options) {
   return new L.TileLayer.Iiif(url, options);
 };
 
-
 class IIIFTileLayer extends TileLayer {
   createLeafletElement(props) {
     return new L.TileLayer.Iiif(props.url, this.getOptions(props));
   }
   updateLeafletElement(fromProps, toProps) {
-    super.updateLeafletElement(fromProps, toProps);
-    if (toProps.url !== fromProps.url) {
-      this.leafletElement.initialize(toProps.url, this.getOptions(toProps));
-      this.leafletElement.redraw();
-    }
+    /* We do not support updating IIIFTileLayer elements,
+    remove this element from the map and create a new one...
+    */
+    return;
   }
 }
 

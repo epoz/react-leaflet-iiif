@@ -1,27 +1,30 @@
 {
-    "name": "react-leaflet-iiif",
-    "version": "0.1.0",
-    "main": "./react-leaflet-iiif.js",
-    "files": [
-        "react-leaflet-iiif.js"
-    ],
-    "description": "React-Leaflet plugin to display IIIF resources",
-    "keywords": [
-        "react",
-        "leaflet",
-        "plugin",
-        "iiif"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/epoz/react-leaflet-iiif"
-    },
-    "dependencies": {
-        "leaflet": "^1.2.0",
-        "react": "^16.0.0",
-        "react-dom": "^16.0.0",
-        "react-leaflet": "^1.7.8"
-    },
-    "author": "Etienne Posthumus",
-    "license": "MIT"
+  "name": "react-leaflet-iiif",
+  "version": "0.1.9",
+  "main": "./lib/react-leaflet-iiif.js",
+  "files": ["src/react-leaflet-iiif.js", "lib/react-leaflet-iiif.js"],
+  "description": "React-Leaflet plugin to display IIIF resources",
+  "keywords": ["react", "leaflet", "plugin", "iiif"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epoz/react-leaflet-iiif"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "leaflet": "^1.2.0",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "react-leaflet": "^1.7.8"
+  },
+  "author": "Etienne Posthumus",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.0.0"
+  },
+  "scripts": {
+    "build": "babel src -d lib"
+  },
+  "babel": {
+    "presets": ["env"]
+  }
 }
